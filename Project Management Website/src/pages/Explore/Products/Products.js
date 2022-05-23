@@ -76,7 +76,7 @@ const Products = () => {
         <div className="d-flex align-items-center justify-content-center mt-5">
           {loading && (
             <div className="d-flex align-items-center justify-content-center">
-              <Spinner animation="grow" variant="warning" />{" "}
+              <Spinner animation="grow" variant="warning" />
             </div>
           )}
         </div>

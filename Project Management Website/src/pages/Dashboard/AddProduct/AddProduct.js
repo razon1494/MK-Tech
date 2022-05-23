@@ -20,7 +20,7 @@ const AddProduct = () => {
     });
   };
   return (
-    <div>
+    <div className="createProject">
       <h2 className="add-product-title text-center">CREATE NEW PROJECT</h2>
       <p className="text-center text-danger">**All Fields Are Mandatory**</p>
       {/* Add Form Starts here */}

@@ -4,9 +4,13 @@
     word-spacing: 8px;
     letter-spacing: 2px;
   font-family: 'Roboto', sans-serif;
+
 }
 .add-page{
   background-color: azure;
   background-color: ghostwhite;
   background-color: rgba(240, 248, 255, 0.822);
+}
+.createProject{
+  min-height: 500px;
 }

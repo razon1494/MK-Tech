@@ -105,6 +105,19 @@ async function run() {
 
       res.json(result);
     });
+    // Update Project
+    app.put("/project/:id", async (req, res) => {
+      const id = req.params.id;
+      const newName = req.body.newName;
+      const filter = { _id: ObjectId(id) };
+      const updateDoc = {
+        $set: {
+          Name: newName,
+        },
+      };
+      const result = await projectCollection.updateOne(filter, updateDoc);
+      res.json(result);
+    });
 
     // Create Project
     app.post("/createproject", async (req, res) => {

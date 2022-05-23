@@ -23,13 +23,12 @@ const NavBar = () => {
             <NavLink to="/home" className="navbar-title">
               <img
                 className="img-fluid"
-                src="https://i.ibb.co/MRzsP59/logo1.png"
+                src="https://i.ibb.co/djw7VzP/pngwing-com.png"
                 alt=""
                 width="50px"
               />
               <h2 className="nav-head d-inline">
-                {" "}
-                G.<span className="kers">Chairs</span>{" "}
+                Project <span className="kers"> Management</span>
               </h2>
             </NavLink>
           </Navbar.Brand>
@@ -49,7 +48,7 @@ const NavBar = () => {
                   className="nav-items fs-6 px-3  py-2 text-light"
                   to="/products"
                 >
-                  Explore
+                  Projects
                 </NavLink>
               )}
 
@@ -97,7 +96,6 @@ const NavBar = () => {
               )}
               <Navbar.Text>
                 <p className="fs-6 ms-3 user-name fw-bold">
-                  {" "}
                   {user?.displayName}
                 </p>
               </Navbar.Text>

@@ -131,7 +131,6 @@ const Registration = () => {
         </form>
 
         <h5>
-          {" "}
           <Link className="toggle" to="/login">
             Already Registered? Login Here
           </Link>

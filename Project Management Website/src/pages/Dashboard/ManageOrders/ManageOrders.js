@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Button, Modal } from "react-bootstrap";
 import Swal from "sweetalert2";
 import "./ManageOrders.css";
 const ManageOrders = () => {
@@ -9,6 +10,17 @@ const ManageOrders = () => {
   const [open, setOpen] = useState(0);
   const [progress, setProgress] = useState(0);
   const [completed, setCompleted] = useState(0);
+
+  const [show, setShow] = useState(false);
+  const [targetName, setTargetName] = useState("");
+  const [targetId, setTargetId] = useState("");
+
+  const handleClose = () => setShow(false);
+  const handleShow = (name, id) => {
+    setTargetName(name);
+    setTargetId(id);
+    setShow(true);
+  };
 
   //getting orders data
   useEffect(() => {
@@ -22,21 +34,6 @@ const ManageOrders = () => {
       });
   }, [check, control]);
 
-  //handle approve
-  const handleApprove = (id) => {
-    const url = `http://localhost:5000/services/${id}`;
-    fetch(url, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
-      .then((res) => {
-        setCheck(!check);
-        console.log("Poree", check);
-      })
-      .finally();
-  };
   const handleDelete = (id) => {
     // var sure=window.confirm(`Are you sure you want to delete this order?`);
     let sure = false;
@@ -92,6 +89,27 @@ const ManageOrders = () => {
       })
       .finally();
   };
+  const [editedName, setEditedName] = useState("");
+
+  //handle Edit
+  const handleEdit = () => {
+    const url = `http://localhost:5000/project/${targetId}`;
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ newName: editedName }),
+    })
+      .then((res) => {
+        setCheck(!check);
+      })
+      .finally(handleClose());
+  };
+  const handleEditNameOnchange = (e) => {
+    setEditedName(e.target.value);
+    console.log(editedName);
+  };
 
   //table index variable
   let index = 1;
@@ -101,32 +119,32 @@ const ManageOrders = () => {
       <p className="text-center all-order-p">
         You can change the status of projects
       </p>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary active">
+      <div className="btn-group btn-group-toggle" data-toggle="buttons">
+        <label className="btn btn-secondary active">
           <input
             type="radio"
             name="options"
             id="option1"
-            autocomplete="off"
+            autoComplete="off"
             checked
           />
           All ({orders.length})
         </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option2" autocomplete="off" />
+        <label className="btn btn-secondary">
+          <input type="radio" name="options" id="option2" autoComplete="off" />
           Open ({open.length})
         </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option3" autocomplete="off" />
+        <label className="btn btn-secondary">
+          <input type="radio" name="options" id="option3" autoComplete="off" />
           In Progress ({progress.length})
         </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option4" autocomplete="off" />
+        <label className="btn btn-secondary">
+          <input type="radio" name="options" id="option4" autoComplete="off" />
           Completed ({completed.length})
         </label>
       </div>
       <div className="table-responsive">
-        <table class="table table-hover table-light table-responsive-sm">
+        <table className="table table-hover table-light table-responsive-sm">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -146,7 +164,7 @@ const ManageOrders = () => {
                   {service.status} <br /> {service.applied} members
                 </td>
                 <td className="fs-5 fw-bold">
-                  {service.applied < 0 || service.status == "completed" ? (
+                  {service.applied < 3 || service.status == "completed" ? (
                     <button className="btn btn-secondary" disabled>
                       Status Can Not <br />
                       Be Changed
@@ -165,21 +183,34 @@ const ManageOrders = () => {
                 </td>
 
                 <td>
-                  {service.status ? (
-                    <button
-                      className="btn btn-success"
-                      onClick={() => handleApprove(service._id)}
-                    >
-                      Edit
-                    </button>
-                  ) : (
-                    <button
-                      className="btn btn-success"
-                      onClick={() => handleApprove(service._id)}
-                    >
-                      Pending
-                    </button>
-                  )}
+                  <Button
+                    variant="primary"
+                    onClick={() => handleShow(service.Name, service._id)}
+                  >
+                    Edit
+                  </Button>
+                  <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>Modal heading</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <input
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder={targetName}
+                        onChange={handleEditNameOnchange}
+                      />
+                    </Modal.Body>
+                    <Modal.Footer>
+                      <Button variant="secondary" onClick={handleClose}>
+                        Close
+                      </Button>
+                      <Button variant="primary" onClick={() => handleEdit()}>
+                        Save Changes
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
                 </td>
                 <td>
                   <button
