@@ -1,25 +1,31 @@
-# G.CHAIRS
-## It is a Gaming Chair selling Company Website
+# Project Management
+## A pproject management website by MERN (MongoDB, Express JS, React, Node)
+## There are some front end special css tasks also in the home page
 ## To see our live website please click the link below
-## https://gamers-chair.web.app/home
+## https://project-management-f232a.web.app/
 
-## This is the client side code part of the website
 
-### G.CHAIRS website has 4 major parts
+### This project has 3 major parts
 * Home
-* Users Booking
-* Dashboard
-### Dashboard has 7 nested routes, 4 of them for admin and 3 of them for user
+* Supervisor's management
+* Member's portal
 ### Details Given Below
+### Login Credentials
+for Supervisor login :
+email: admin@admin.com
+password: 123123
+for User login :
+email: user@user.com
+password: 123123
+
+
 
 ### Home
-- This is the landing page of our website
-- A simple Navigation Bar and footer is fixed  so that user can route anywhere anytime
-- Home Page has an slider showing some energetic photos with qoutes.
-- After the slider 6 of our most popular chair shown.
-- We also have a section to contact us and get wholesale price.
-- But only this option is public.
-- To access other options users must have to be logged in
+- This is the landing page of our website and a front end task is completed.
+- Mouse scrolling will scroll horizontally instead of vertical scrolling
+- Side Navbar is is fixed here
+- There are 5 section user can explore.
+- Added a bit animation.
 
 #### We kept login simple by using only email password base sign in so that user can login very easily without hassel.
 
@@ -27,46 +33,39 @@
 - Here user should login giving his/her registered email and password.
 - This extra process is just for security purpose
 
-### Purchase Page
+## User Part
 
-- In this page user can book his/her desired chair.
-- Also User can see details information about the chair.
+- User can see all the projects and can apply for the open projects.
 
-### Explore Page
+### Supervisor Part
 
-- In this page all products are displayed card wise.
+- Supervisor will see all projects in "Manage Projects" Tab
+- Can change there status only if 3 or more member applied
+- Can edit project name
+- can create another project in the 'Add Project' Tab
+- Can promote other member in 'Make Supervisor' Tab
 
-## ------------------DASHBOARD------------------
-### Dashboard have two dofferent view for user and admin
 
-### User Dashboard
+## API Details
 
-- Here user will see 3 different routes
+### This server side completed all CRUD operations
+### CREATE
+- User can create new projects
+- By this server the created product will be added to the display for further use
+- while user sign up then that user will be created in DB by rest API
 
-#### PAY Your Bill
-- Customer can pay his/her bill in this segment
-#### My Orders
-- Customer can See his/her own Orders in 'My Orders' segment, he/she can also delete orders there.
 
-#### Review
-- Customer can give a review us with rating in 'Review' segment
+### READ
+- Server has get method to fetch all the data from database and send to the client side
+- By using this we can show projects/users easily.
 
-### Admin Dashboard
-### All Dashboard items has individual navigation page on admin panel
+### UPDATE
+- Server has some funtionality to update existing data.
+- We can update project name.
+- Making supervisor is none other than update the role of the member
 
-#### Manage All Orders
+### DELETE
+- Deleting is another funtionality we have been implemented in this server
+- Admin also can delete projects from Database via this server API
 
-- Admin will see all the orders in this route/section,
-- Admin can delete the order
-- Admin can change the status pending to shipped here.
-
-#### Add A New Product
-
-- Admin can add a new chair product from this section.
-- After adding the product will show in explore page.
-
-#### Create An Admin
-- Admin can creat another admin by email
-
-#### Manage Products
-- Admin can delete any existing products here
+************* Thank You For Reading **************************

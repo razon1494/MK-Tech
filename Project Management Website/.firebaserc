@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "gamers-chair"
-  }
+    "staging": "project-management-f232a",
+    "default": "project-management-f232a"
+  },
+  "targets": {}
 }
