@@ -1,0 +1,23 @@
+.bodyS{
+    margin: 0;
+}
+.containerS{
+overflow-x: hidden;
+  display: flex;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  min-width: 80vw;
+  min-height: 90vh;
+}
+
+.section2{
+   background-color: teal;
+}
+.section3{
+   background-color: tomato;
+}

@@ -1,0 +1,27 @@
+.partners{
+margin-top: 200px;
+margin-left: 150px;
+}
+.partner-heading{
+color: white;
+font-size: 3rem;
+font-weight: 700;
+}
+.media{
+background-color: aliceblue;
+    margin-top: 40px ;
+    border-radius: 50px;
+    border:10px solid teal;
+
+}
+
+.clickmedia{
+    border: none;
+background-color: tomato;
+color: white;
+padding: 15px;
+border-radius: 10px;
+font-size: 1.2rem;
+ margin-top: 50px;
+ margin-left: 20px;
+}

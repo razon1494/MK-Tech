@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 
 import NavBar from "../../Shared/NavBar/NavBar";
-
-import Footer from "../Footer/Footer";
-import Slider from "../Slider/Slider";
+import Scroller from "../Scroller/Scroller";
 
 import "./Home.css";
 
@@ -18,10 +16,9 @@ const Home = () => {
       {/* First Part Navbar  */}
       <NavBar></NavBar>
       {/* Second Part Slider */}
-      <Slider></Slider>
+      {/* <Slider></Slider> */}
+      <Scroller></Scroller>
       {/* Bonus (fifth) Contact Form */}
-
-      <Footer></Footer>
     </div>
   );
 };

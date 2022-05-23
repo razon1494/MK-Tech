@@ -119,29 +119,22 @@ const ManageOrders = () => {
       <p className="text-center all-order-p">
         You can change the status of projects
       </p>
-      <div className="btn-group btn-group-toggle" data-toggle="buttons">
-        <label className="btn btn-secondary active">
-          <input
-            type="radio"
-            name="options"
-            id="option1"
-            autoComplete="off"
-            checked
-          />
+      <div
+        className="btn-group btn-group-toggle d-flex justify-content-center align-items-center"
+        data-toggle="buttons"
+      >
+        <button className="btn btn-primary p-3 fs-4 fw-bold">
           All ({orders.length})
-        </label>
-        <label className="btn btn-secondary">
-          <input type="radio" name="options" id="option2" autoComplete="off" />
+        </button>
+        <button className="btn btn-danger p-3 fs-4 fw-bold">
           Open ({open.length})
-        </label>
-        <label className="btn btn-secondary">
-          <input type="radio" name="options" id="option3" autoComplete="off" />
+        </button>
+        <button className="btn btn-info p-3 fs-4 fw-bold">
           In Progress ({progress.length})
-        </label>
-        <label className="btn btn-secondary">
-          <input type="radio" name="options" id="option4" autoComplete="off" />
+        </button>
+        <button className="btn btn-success p-3 fs-4 fw-bold">
           Completed ({completed.length})
-        </label>
+        </button>
       </div>
       <div className="table-responsive">
         <table className="table table-hover table-light table-responsive-sm">

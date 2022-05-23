@@ -1,0 +1,18 @@
+.wedo{
+    background-color: aliceblue;
+    color:tomato;
+    font-size: 1.3rem;
+    margin-top: 40px ;
+    border-radius: 30px;
+    padding: 2%;
+    border: 10px solid teal;
+
+}
+.checkout{
+border: none;
+background-color: tomato;
+color: white;
+padding: 20px;
+border-radius: 10px;
+font-size: 1.2rem;
+}

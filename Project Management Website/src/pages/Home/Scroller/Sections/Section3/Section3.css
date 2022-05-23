@@ -1,0 +1,27 @@
+.partners{
+margin-top: 200px;
+margin-left: 150px;
+}
+.partner-heading{
+color: white;
+font-size: 3rem;
+font-weight: 700;
+}
+.brand{
+background-color: aliceblue;
+    margin-top: 40px ;
+    border-radius: 30px;
+    padding: 2%;
+    border: 5px solid tomato;
+
+}
+.clickbrand{
+    border: none;
+background-color: darkslateblue;
+color: white;
+padding: 15px;
+border-radius: 10px;
+font-size: 1.2rem;
+ margin-top: 50px;
+ margin-left: 20px;
+}
