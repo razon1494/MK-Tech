@@ -4,21 +4,27 @@
 ## To see our live website please click the link below
 ## https://project-management-f232a.web.app/
 
-
 ### This project has 3 major parts
 * Home
 * Supervisor's management
 * Member's portal
 ### Details Given Below
 ### Login Credentials
-for Supervisor login :
-email: admin@admin.com
-password: 123123
-for User login :
-email: user@user.com
-password: 123123
+#### for Supervisor login :
+#### email: admin@admin.com
+#### password: 123123
+#### &
+#### for User login :
+#### email: user@user.com
+#### password: 123123
 
-
+### To run this project on your local machine by cloning the repo you need two env file, one for website part and another for server side
+### If you need I will provide a .env.local file for website part and a .env file for server side,
+### You just copy them to the respective project folder.
+### Then you need to run the command 'npm install' for both folder.
+### After 'npm i' and insering env file you need to run 'npm start-dev' command to run the server side, you will see now server side will be connected to the database.
+### and then go to website folder, as you have already added env.local file here and run the command 'npm i' now you just need to run the command 'npm start'
+### DONE!!!!! Project is Running
 
 ### Home
 - This is the landing page of our website and a front end task is completed.
