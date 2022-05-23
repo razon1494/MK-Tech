@@ -10,7 +10,9 @@ const Product = ({ project }) => {
   const [test, setTest] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/member/:${user.email}`)
+    fetch(
+      `https://mysterious-everglades-33894.herokuapp.com/member/:${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMember(data);

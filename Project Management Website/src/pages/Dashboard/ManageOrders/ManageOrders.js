@@ -24,7 +24,7 @@ const ManageOrders = () => {
 
   //getting orders data
   useEffect(() => {
-    fetch("http://localhost:5000/manageprojects")
+    fetch("https://mysterious-everglades-33894.herokuapp.com/manageprojects")
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
@@ -56,10 +56,13 @@ const ManageOrders = () => {
       })
       .then(() => {
         if (sure) {
-          fetch(`http://localhost:5000/deleteproject/${id}`, {
-            method: "DELETE",
-            headers: { "content-type": "application/json" },
-          })
+          fetch(
+            `https://mysterious-everglades-33894.herokuapp.com/deleteproject/${id}`,
+            {
+              method: "DELETE",
+              headers: { "content-type": "application/json" },
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               if (data.deletedCount) {
@@ -75,7 +78,7 @@ const ManageOrders = () => {
   // Status Change
   const handleStatusChange = (id, status) => {
     console.log(id);
-    const url = `http://localhost:5000/projects/${id}`;
+    const url = `https://mysterious-everglades-33894.herokuapp.com/projects/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -93,7 +96,7 @@ const ManageOrders = () => {
 
   //handle Edit
   const handleEdit = () => {
-    const url = `http://localhost:5000/project/${targetId}`;
+    const url = `https://mysterious-everglades-33894.herokuapp.com/project/${targetId}`;
     fetch(url, {
       method: "PUT",
       headers: {

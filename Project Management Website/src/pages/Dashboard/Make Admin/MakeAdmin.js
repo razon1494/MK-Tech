@@ -7,7 +7,7 @@ const MakeAdmin = () => {
   // Admin Creation API Call;
   const handleOnSubmit = (e) => {
     const user = { email };
-    fetch("http://localhost:5000/users/admin", {
+    fetch("https://mysterious-everglades-33894.herokuapp.com/users/admin", {
       method: "PUT",
       headers: {
         "content-type": "application/json",

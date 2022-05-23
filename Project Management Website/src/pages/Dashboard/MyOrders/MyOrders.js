@@ -13,7 +13,9 @@ const MyOrders = () => {
   const [bookings, setBookings] = useState();
   const [control, setConrol] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/myorder/${user?.email}`)
+    fetch(
+      `https://mysterious-everglades-33894.herokuapp.com/myorder/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setBookings(data));
   }, [control]);
@@ -40,10 +42,13 @@ const MyOrders = () => {
       })
       .then(() => {
         if (sure) {
-          fetch(`http://localhost:5000/deleteorder/${id}`, {
-            method: "DELETE",
-            headers: { "content-type": "application/json" },
-          })
+          fetch(
+            `https://mysterious-everglades-33894.herokuapp.com/deleteorder/${id}`,
+            {
+              method: "DELETE",
+              headers: { "content-type": "application/json" },
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               if (data.deletedCount) {

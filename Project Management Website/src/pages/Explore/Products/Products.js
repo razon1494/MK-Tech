@@ -20,7 +20,7 @@ const Products = () => {
   GetPerson(user.email);
   //getting data from db
   useEffect(() => {
-    fetch("http://localhost:5000/manageprojects")
+    fetch("https://mysterious-everglades-33894.herokuapp.com/manageprojects")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -34,7 +34,7 @@ const Products = () => {
   const handleApply = (projectId, applied) => {
     const newAppliedNumber = applied + 1;
 
-    const url = `http://localhost:5000/member/${person._id}`;
+    const url = `https://mysterious-everglades-33894.herokuapp.com/member/${person._id}`;
 
     const updated = person;
     updated?.application.push(projectId);

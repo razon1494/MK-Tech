@@ -63,7 +63,9 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(
+      `https://mysterious-everglades-33894.herokuapp.com/users/${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data, "from admin finder");
@@ -123,7 +125,9 @@ const useFirebase = () => {
   };
   // Get the member
   useEffect(() => {
-    fetch(`http://localhost:5000/member/${user.email}`)
+    fetch(
+      `https://mysterious-everglades-33894.herokuapp.com/member/${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setPerson(data);
@@ -131,7 +135,9 @@ const useFirebase = () => {
   }, [user]);
   const GetPerson = (email) => {
     useEffect(() => {
-      fetch(`http://localhost:5000/getuser/${email}`)
+      fetch(
+        `https://mysterious-everglades-33894.herokuapp.com/getuser/${email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setPerson(data);
@@ -153,7 +159,9 @@ const useFirebase = () => {
   }, [auth]);
   //admin check for admin route
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(
+      `https://mysterious-everglades-33894.herokuapp.com/users/${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -163,7 +171,9 @@ const useFirebase = () => {
   //user check for user route
   const [isUser, setIsUser] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/user/${user.email}`)
+    fetch(
+      `https://mysterious-everglades-33894.herokuapp.com/user/${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data, "from db");
@@ -201,7 +211,7 @@ const useFirebase = () => {
   const saveUser = (email, displayName, method) => {
     const role = "user";
     const user = { email, displayName, role };
-    fetch("http://localhost:5000/users", {
+    fetch("https://mysterious-everglades-33894.herokuapp.com/users", {
       method: method,
       headers: {
         "content-type": "application/json",

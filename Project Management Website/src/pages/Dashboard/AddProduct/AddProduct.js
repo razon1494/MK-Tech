@@ -10,14 +10,19 @@ const AddProduct = () => {
     console.log(data);
     data.status = "open";
     data.applied = 0;
-    axios.post(`http://localhost:5000/createproject`, data).then((res) => {
-      if (res.data.insertedId) {
-        //confirmation
-        Swal.fire("ADDED!", "Your Product Is Now Live!", "success");
-        //reset the form
-        reset();
-      }
-    });
+    axios
+      .post(
+        `https://mysterious-everglades-33894.herokuapp.com/createproject`,
+        data
+      )
+      .then((res) => {
+        if (res.data.insertedId) {
+          //confirmation
+          Swal.fire("ADDED!", "Your Product Is Now Live!", "success");
+          //reset the form
+          reset();
+        }
+      });
   };
   return (
     <div className="createProject">
