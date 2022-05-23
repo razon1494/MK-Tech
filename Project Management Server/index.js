@@ -20,7 +20,6 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     await client.connect();
-    console.log("connected to databse from project management server");
     const database = client.db("project_management");
     const projectCollection = database.collection("projects");
     const usersCollection = database.collection("users");
@@ -28,7 +27,6 @@ async function run() {
     app.get("/users", async (req, res) => {
       const cursor = usersCollection.find({});
       const users = await cursor.toArray();
-
       res.send(users);
     });
     // Register user and add user ondatabase*
@@ -38,20 +36,11 @@ async function run() {
       const result = await usersCollection.insertOne(user);
       res.json(result);
     });
-
+    // Getting all projects
     app.get("/manageprojects", async (req, res) => {
       const cursor = projectCollection.find({});
       const services = await cursor.toArray();
       res.send(services);
-    });
-
-    //add bookings POST API *
-    app.post("/placeorder", async (req, res) => {
-      const service = req.body;
-      console.log("result hitted the post api", service);
-      const result = await ordersCollection.insertOne(service);
-      console.log(result);
-      res.send(result);
     });
     //set admin
     app.put("/users/admin", async (req, res) => {
@@ -59,12 +48,6 @@ async function run() {
       const filter = { email: user.email };
       const updateDoc = { $set: { role: "admin" } };
       const result = await usersCollection.updateOne(filter, updateDoc);
-      res.json(result);
-    });
-    //add review
-    app.post("/addreview", async (req, res) => {
-      const review = req.body;
-      const result = await reviewCollection.insertOne(review);
       res.json(result);
     });
     //finding admin
