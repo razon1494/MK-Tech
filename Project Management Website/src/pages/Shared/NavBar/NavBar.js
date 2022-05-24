@@ -55,7 +55,7 @@ const NavBar = () => {
               {admin && (
                 <NavLink
                   className="nav-items fs-6 px-3  py-2 text-light"
-                  to="/manageorders"
+                  to="/manageprojects"
                 >
                   Manage Projects
                 </NavLink>

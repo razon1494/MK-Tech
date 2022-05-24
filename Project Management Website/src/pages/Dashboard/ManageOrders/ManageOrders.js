@@ -10,10 +10,10 @@ const ManageOrders = () => {
   const [open, setOpen] = useState(0);
   const [progress, setProgress] = useState(0);
   const [completed, setCompleted] = useState(0);
-
   const [show, setShow] = useState(false);
   const [targetName, setTargetName] = useState("");
   const [targetId, setTargetId] = useState("");
+  const [filterOrders, setFilterOrders] = useState([""]);
 
   const handleClose = () => setShow(false);
   const handleShow = (name, id) => {
@@ -28,6 +28,7 @@ const ManageOrders = () => {
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
+        setFilterOrders(data);
         setOpen(data.filter((e) => e.status == "open"));
         setProgress(data.filter((e) => e.status == "in Progress"));
         setCompleted(data.filter((e) => e.status == "completed"));
@@ -88,7 +89,6 @@ const ManageOrders = () => {
     })
       .then((res) => {
         setCheck(!check);
-        console.log("Poree", check);
       })
       .finally();
   };
@@ -113,29 +113,52 @@ const ManageOrders = () => {
     setEditedName(e.target.value);
     console.log(editedName);
   };
-
+  const handleAll = () => {
+    setFilterOrders(orders);
+  };
+  const handleOpen = () => {
+    setFilterOrders(open);
+  };
+  const handleProgress = () => {
+    setFilterOrders(progress);
+  };
+  const handleComplete = () => {
+    setFilterOrders(completed);
+  };
   //table index variable
   let index = 1;
   return (
-    <div className="manage-order-container">
-      <h1 className="text-center all-order-title">ALL PROJECTS</h1>
-      <p className="text-center all-order-p">
-        You can change the status of projects
+    <div className="manage-project-container">
+      <h1 className="text-center all-project-title">ALL PROJECTS</h1>
+      <p className="text-center all-project-p">
+        You can filter according to status by clicking below buttons
       </p>
       <div
         className="btn-group btn-group-toggle d-flex justify-content-center align-items-center"
         data-toggle="buttons"
       >
-        <button className="btn btn-primary p-3 fs-4 fw-bold">
+        <button
+          onClick={handleAll}
+          className="btn btn-primary p-3 fs-4 fw-bold"
+        >
           All ({orders.length})
         </button>
-        <button className="btn btn-danger p-3 fs-4 fw-bold">
+        <button
+          onClick={handleOpen}
+          className="btn btn-danger p-3 fs-4 fw-bold"
+        >
           Open ({open.length})
         </button>
-        <button className="btn btn-info p-3 fs-4 fw-bold">
+        <button
+          onClick={handleProgress}
+          className="btn btn-info p-3 fs-4 fw-bold"
+        >
           In Progress ({progress.length})
         </button>
-        <button className="btn btn-success p-3 fs-4 fw-bold">
+        <button
+          onClick={handleComplete}
+          className="btn btn-success p-3 fs-4 fw-bold"
+        >
           Completed ({completed.length})
         </button>
       </div>
@@ -145,14 +168,16 @@ const ManageOrders = () => {
             <tr>
               <th scope="col">#</th>
               <th scope="col">Project Name</th>
-              <th scope="col">Status</th>
+              <th scope="col">
+                Status &<br /> Applied Members
+              </th>
               <th scope="col">Change</th>
               <th scope="col">Edit</th>
               <th scope="col">Delete</th>
             </tr>
           </thead>
           <tbody>
-            {orders.map((service) => (
+            {filterOrders.map((service) => (
               <tr>
                 <th scope="row">{index++}</th>
                 <td className="fs-4 fw-bold user-info">{service.Name}</td>
@@ -162,18 +187,29 @@ const ManageOrders = () => {
                 <td className="fs-5 fw-bold">
                   {service.applied < 3 || service.status == "completed" ? (
                     <button className="btn btn-secondary" disabled>
-                      Status Can Not <br />
-                      Be Changed
+                      {service.status == "completed" ? (
+                        <p>
+                          Project is <br /> completed
+                        </p>
+                      ) : (
+                        <p>
+                          Not enough <br /> members
+                        </p>
+                      )}
                     </button>
                   ) : (
                     <button
-                      className="btn btn-secondary"
+                      className="btn btn-info text-center"
                       onClick={() =>
                         handleStatusChange(service._id, service.status)
                       }
                     >
-                      Change Status to <br />
-                      {service.status == "open" ? "In Progress" : "Completed"}
+                      Click to make it <br />
+                      {service.status == "open" ? (
+                        <p className="prog">In Progress</p>
+                      ) : (
+                        <p className="comp">Completed</p>
+                      )}
                     </button>
                   )}
                 </td>
@@ -187,7 +223,7 @@ const ManageOrders = () => {
                   </Button>
                   <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
-                      <Modal.Title>Modal heading</Modal.Title>
+                      <Modal.Title>Edit The Project Name</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                       <input

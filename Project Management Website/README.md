@@ -19,10 +19,9 @@
 #### password: 123123
 
 ### To run this project on your local machine by cloning the repo you need two env file, one for website part and another for server side
-### If you need I will provide a .env.local file for website part and a .env file for server side,
+### If you need I will provide a .env.local file for website part.
 ### You just copy them to the respective project folder.
-### Then you need to run the command 'npm install' for both folder.
-### After 'npm i' and insering env file you need to run 'npm start-dev' command to run the server side, you will see now server side will be connected to the database.
+### Then you need to run the command 'npm install'.
 ### and then go to website folder, as you have already added env.local file here and run the command 'npm i' now you just need to run the command 'npm start'
 ### DONE!!!!! Project is Running
 
@@ -46,6 +45,7 @@
 ### Supervisor Part
 
 - Supervisor will see all projects in "Manage Projects" Tab
+- Supervisor can filter projects
 - Can change there status only if 3 or more member applied
 - Can edit project name
 - can create another project in the 'Add Project' Tab

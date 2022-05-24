@@ -29,7 +29,7 @@ function App() {
             </Route>
 
             {/* Admin Route Only for admin */}
-            <AdminRoute exact path="/manageorders">
+            <AdminRoute exact path="/manageprojects">
               <ManageOrdersPage></ManageOrdersPage>
             </AdminRoute>
             <AdminRoute exact path="/addproducts">
