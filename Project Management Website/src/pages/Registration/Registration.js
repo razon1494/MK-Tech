@@ -52,7 +52,7 @@ const Registration = () => {
   return (
     <div className="signup">
       <div className="login-welcome py-4 mb-4">
-        <h1 className="text-center fw-bold">Welcome To G.Chairs</h1>
+        <h1 className="text-center fw-bold">Welcome</h1>
         <h2 className="text-center fw-bold">Register Here</h2>
       </div>
       <div className="container mx-auto">

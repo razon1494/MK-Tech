@@ -7,86 +7,82 @@ padding-left: 100px;
     font-size: 3.5rem;
     font-weight: bold;
     letter-spacing: 3px;
+    margin-left: 5%;
+
+    width: 100%
 }
-.nextlevel{
+
+.learnmore{
+margin-top: 1rem;
+font-size: 1.5rem;
+margin-left: 5%;
+
+}
+/* Animation */
+
+
+.wrapper{
+    display: inline-flex;
+    color: aliceblue;
+}
+.wrapper .static-text{
+    color: ghostwhite;
+    font-weight: 400;
+}
+.wrapper .dynamic-texts{
+    /* margin-left: 15px; */
+    line-height: 70px;
+    height: 70px;
+    overflow: hidden;
+}
+.dynamic-texts{
+
+}
+.dynamic-texts li{
+    list-style: none;
+    text-align: start;
     color:orange;
+    position: relative;
     font-weight: 900;
     font-size: 4.5rem;
     letter-spacing: 3px;
-}
-.learnmore{
-margin-top: 2rem;
-font-size: 1.5rem;
-}
-/* Animation */
-@keyframes nextlevel {
-    0% {
-        top: 0px;
-        left: 0px;
+    margin-left: 0;
+    top: 0px;
+   animation: slide 32s steps(4) infinite;
 
-    }
-    10% {
-        top: 130px;
-        left: 20%;
-
-    }
-    20% {
-        top: 0px;
-        left: 40%;
-
-    }
-    30% {
-        top: 130px;
-        left: 60%;
-
-    }
-    40% {
-        top: 0px;
-        left: 80%;
-
-    }
-    50% {
-        top: 130px;
-        left: 95%;
-
-    }
-    60% {
-        top: 0px;
-        left: 80%;
-
-    }
-    70% {
-        top: 130px;
-        left: 60%;
-
-    }
-    80% {
-        top: 0px;
-        left: 40%;
-
-    }
-    90% {
-        top: 130px;
-        left: 20%;
-
-    }
-    100% {
-        top: 0px;
-        left: 0px;
-        /* transform: rotate(00deg); */
-    }
-}
-.animation-parent {
-    width: 90%;
-    height: 200px;
-    /* margin-top: 50px; */
-    /* margin-left: 20%; */
 }
 
-.nextlevel {
+@keyframes slide {
+    100%{
+        top: -280px;
+    }
+}
+.dynamic-texts li span{
     position: relative;
-    /* width: 100%;
-    height: 100px; */
-    animation: nextlevel 10s linear 0s infinite alternate;
-    animation-play-state: running;
+}
+
+.dynamic-texts li span::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-left: 2px solid orange;;
+    left: 0;
+    background: white;
+    /* margin-top: 20px; */
+    top: 0px;
+    /* border: 1px solid red; */
+    animation: typing 8s steps(20) infinite;
+
+}
+
+@keyframes typing {
+    50%{
+        left:100%;
+        margin: 0 -35px 0 35px;
+    }
+    100%{
+        right:100%;
+        margin: 0 -35px 0 35px;
+    }
 }

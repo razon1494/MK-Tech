@@ -5,10 +5,7 @@ const Section4 = () => {
       <div className="row container">
         <div className="col-md-4 media">
           <div className="d-flex justify-content-center align-items-center container">
-            <img
-              src="https://i.ibb.co/jMxh03C/affiliate-marketing.png"
-              alt=""
-            />
+            <img src="https://i.ibb.co/KK4WXr2/p1.png" alt="" />
           </div>
         </div>
 
@@ -17,15 +14,15 @@ const Section4 = () => {
             <iframe
               width="560"
               height="315"
-              src="https://www.youtube.com/embed/SH25ChTfELc?controls=0&mute=1&autoplay=1&loop=50"
+              src="https://www.youtube.com/embed/SH25ChTfELc?controls=0&mute=1&autoplay=1&loop=1"
               title="YouTube video player"
               frameborder="0"
             ></iframe>
           </div>
         </div>
-        <div className="col-md-4 media">
+        <div className="col-md-4 media ">
           <div className="d-flex justify-content-center align-items-center container">
-            <img src="https://i.ibb.co/1z8Qd3r/personal-mediaing.png" alt="" />
+            <img src="https://i.ibb.co/9WPBGsP/p2.png" alt="" width="300px" />
           </div>
         </div>
       </div>
